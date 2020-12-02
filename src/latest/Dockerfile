@@ -56,17 +56,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 # Install music
-RUN wget https://github.com/INCF/MUSIC/archive/master.tar.gz && \
-	tar -zxf master.tar.gz && \
-	mkdir music-build music-install && \
-	cd MUSIC-master && \
-	sh ./autogen.sh && \
-	cd ../music-build && \
-	../MUSIC-master/configure --prefix=/opt/music-install && \
-	make && \
-	make install && \
-	cd / && \
-    rm master.tar.gz
+#RUN wget https://github.com/INCF/MUSIC/archive/master.tar.gz && \
+#	tar -zxf master.tar.gz && \
+#	mkdir music-build music-install && \
+#	cd MUSIC-master && \
+#	sh ./autogen.sh && \
+#	cd ../music-build && \
+#	../MUSIC-master/configure --prefix=/opt/music-install && \
+#	make && \
+#	make install && \
+#	cd / && \
+#    rm master.tar.gz
 
 # Install libneurosim
 # RUN git clone https://github.com/INCF/libneurosim.git libneurosim && \
@@ -99,10 +99,10 @@ RUN git clone https://github.com/jougs/nest-simulator.git && \
         -Dwith-mpi=$WITH_MPI \
         -Dwith-openmp=$WITH_OMP \
         -Dwith-libneurosim=$WITH_LIBNEUROSIM \
-        -Dwith-music=/opt/music-install \
         ../nest-simulator && \
   make && \
   make install
+#        -Dwith-music=/opt/music-install \
 
 
 ###############################################################################
@@ -160,7 +160,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pip install --no-binary :all: PyNN
 
 COPY --from=buildermaster /opt/nest /opt/nest
-COPY --from=buildermaster /opt/music-install /opt/music-install
+#COPY --from=buildermaster /opt/music-install /opt/music-install
 
 RUN adduser --disabled-login --gecos 'NEST' --home /home/nest nest && \
     chown nest:nest /home/nest
