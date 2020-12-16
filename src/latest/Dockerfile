@@ -79,9 +79,11 @@ RUN wget https://github.com/INCF/MUSIC/archive/master.tar.gz && \
 #    make install
 
 # Install NEST
-RUN git clone https://github.com/nest/nest-simulator.git && \
+#RUN git clone https://github.com/nest/nest-simulator.git && \
+RUN git clone https://github.com/ChristopherBignamini/nest-simulator.git && \
   cd nest-simulator && \
-  git checkout master && \
+#  git checkout master && \
+  git checkout benedikt_restricted_python && \
   cd .. && \
   mkdir nest-build && \
   ls -l && \
