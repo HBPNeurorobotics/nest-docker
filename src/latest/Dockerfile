@@ -77,7 +77,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #    ./configure --prefix=/opt/libneurosim-install --with-python=3 && \
 #    make && \
 #    make install
-https://github.com/jougs/nest-simulator.git
+
 # Install NEST
 #RUN git clone https://github.com/nest/nest-simulator.git && \
 RUN git clone https://github.com/jougs/nest-simulator.git && \
